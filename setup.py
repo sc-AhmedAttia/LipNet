@@ -21,6 +21,6 @@ setup(name='lipnet',
 		'tensorflow-gpu==1.0.1',
 		'Theano==0.9.0',
         'nltk==3.2.2',
-        'sk-video==1.1.7',
-        'dlib==19.4.0'
+        'sk-video',
+        'dlib'
     ])
