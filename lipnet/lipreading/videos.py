@@ -7,6 +7,9 @@ import skvideo.io
 import dlib
 from lipnet.lipreading.aligns import Align
 
+detector = dlib.get_frontal_face_detector()
+predictor = dlib.shape_predictor(os.path.dirname(os.path.abspath(__file__)) + "/../../common/predictors/shape_predictor_68_face_landmarks.dat")
+
 class VideoAugmenter(object):
     @staticmethod
     def split_words(video, align):
@@ -134,8 +137,8 @@ class Video(object):
             raise Exception('Video type not found')
 
     def process_frames_face(self, frames):
-        detector = dlib.get_frontal_face_detector()
-        predictor = dlib.shape_predictor(self.face_predictor_path)
+        # detector = dlib.get_frontal_face_detector()
+        # predictor = dlib.shape_predictor(self.face_predictor_path)
         mouth_frames = self.get_frames_mouth(detector, predictor, frames)
         self.face = np.array(frames)
         self.mouth = np.array(mouth_frames)
