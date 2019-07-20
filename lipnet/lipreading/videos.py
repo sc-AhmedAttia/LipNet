@@ -6,9 +6,12 @@ from scipy.misc import imresize
 import skvideo.io
 import dlib
 from lipnet.lipreading.aligns import Align
+import time
 
+start = time.time()
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(os.path.dirname(os.path.abspath(__file__)) + "/../../common/predictors/shape_predictor_68_face_landmarks.dat")
+print("dlib loading ", time.time() - start)
 
 class VideoAugmenter(object):
     @staticmethod
